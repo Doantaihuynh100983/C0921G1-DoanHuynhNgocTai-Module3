@@ -1,4 +1,4 @@
-CREATE DATABASE NhanVien;
+CREATE DATABASE TaoBang;
 use NhanVien;
 CREATE TABLE NhanVienHH(
 	Id int primary key, 
@@ -9,4 +9,3 @@ insert into NhanVienHH
 value 
 (1,"DOAN","TAI");
 SELECT * FROM NhanVienHH;
-DROP DATABASE NhanVien;
