@@ -8,3 +8,4 @@ CREATE TABLE SinhVienTT(
 insert into SinhVienTT
 value 
 (1,"DOAN","TAI");
+SELECT * FROM sinhvien.sinhvientt;
