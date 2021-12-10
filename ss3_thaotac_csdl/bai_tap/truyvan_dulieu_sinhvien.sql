@@ -16,9 +16,6 @@ from mark m join subject sb on m.SubId = sb.SubId
 where sb.Credit between 3 and 5;
 
 
--- Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
-UPDATE `sinh_vien`.`student` SET `StudentId` = '2' WHERE (`StudentId` = '1');
-UPDATE `sinh_vien`.`student` SET `StudentId` = '1' WHERE (`StudentId` = '2');
 
 
 -- Hiển thị các thông tin: StudentName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
