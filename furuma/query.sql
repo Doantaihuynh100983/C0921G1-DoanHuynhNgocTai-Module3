@@ -100,7 +100,7 @@ WHERE
          FROM
            furuma.hop_dong
    WHERE
-		month(hd.ngay_lam_hop_dong) between 1 and 3 
+		month(hd.ngay_lam_hop_dong)  BETWEEN 1 and 3
  )
 group by dv.ten_dich_vu
 order by dv.ma_dich_vu;
@@ -120,6 +120,6 @@ order by dv.ma_dich_vu;
 
 
 
- select * from furuma.hop_dong;
+ select * from furuma.dich_vu;
 
 
