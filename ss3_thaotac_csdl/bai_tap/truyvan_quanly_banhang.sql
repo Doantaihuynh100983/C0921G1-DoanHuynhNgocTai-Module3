@@ -42,8 +42,20 @@ from cutomers ctm join oders od on od.c_id = ctm.c_iD
 group by pd.p_name;
         
 	
+-- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
+select cutomers.c_id , cutomers.c_name
+from cutomers
+where cutomers.c_id not in (
+	select oders.c_id
+    from oders
+)
 
 
 
+-- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn 
+-- (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
+--  Giá bán của từng loại được tính = odQTY*pPrice)
 
+
+ 
 
