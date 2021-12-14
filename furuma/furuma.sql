@@ -4,6 +4,7 @@ use furuma;
 create table vi_tri(
 	ma_vi_tri int                            not null        AUTO_INCREMENT  primary key  ,
     ten_vi_tri varchar(45)                   not null 
+    
 );
 
 

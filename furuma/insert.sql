@@ -1,7 +1,7 @@
--- insert into furuma.vi_tri
--- (ten_vi_tri)
--- value 
--- ("Quản Lý"),
+--  insert into furuma.vi_tri
+--  (ten_vi_tri)
+--  value 
+--  ("Quản Lý"),
 -- ("Nhân Viên");
 select * from furuma.vi_tri;
 
@@ -84,7 +84,7 @@ select * from furuma.kieu_thue;
 -- ("House"),
 -- ("Room");
 select * from furuma.loai_dich_vu;
-	
+-- 	
 -- insert into furuma.dich_vu
 -- (ten_dich_vu ,dien_tich,  chi_phi_thue ,  so_nguoi_toi_da,  ma_kieu_thue , ma_loai_dich_vu ,  tieu_chuan_phong , mo_ta_tien_nghi_khac , dien_tich_ho_boi , so_tang  )
 -- values
