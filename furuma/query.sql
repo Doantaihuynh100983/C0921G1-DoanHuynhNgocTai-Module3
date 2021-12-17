@@ -282,7 +282,16 @@ WHERE nhan_vien.ma_nhan_vien NOT IN (SELECT hop_dong.ma_nhan_vien
 -- câu 17 : Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum
 -- lên Diamond, chỉ cập nhật những khách hàng đã từng đặt phòng với
 -- Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
-	
+update furuma.khach_hang
+set khach_hang.ma_loai_khach=1
+where khach_hang.ma_loai_khach!=1 and khach_hang.ma_khach_hang in (select tmp.ma_khach_hang from(select kh.ma_khach_hang
+from furuma.khach_hang kh
+join furuma.hop_dong hd on hd.ma_khach_hang=kh.ma_khach_hang
+join furuma.dich_vu dv on dv.ma_dich_vu=hd.ma_dich_vu
+join furuma.hop_dong_chi_tiet hdct on hd.ma_hop_dong=hdct.ma_hop_dong
+join furuma.dich_vu_di_kem dvdk on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+group by kh.ma_khach_hang
+having (SUM(ifnull(dv.chi_phi_thue,0) + ifnull(dvdk.gia,0)* ifnull(hdct.so_luong,0))>=1000000))as tmp);
 	
 
 
@@ -307,7 +316,13 @@ SELECT hop_dong.ma_khach_hang FROM furuma.hop_dong
 -- câu 19 :Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong
 -- năm 2020 lên gấp đôi.
 	
-    
+update furuma.dich_vu_di_kem
+set dich_vu_di_kem.gia=dich_vu_di_kem.gia*2
+where dich_vu_di_kem.ma_dich_vu_di_kem in (select tmp.ma_dich_vu_di_kem from (select dvdk.ma_dich_vu_di_kem
+from furuma.dich_vu_di_kem dvdk
+join furuma.hop_dong_chi_tiet hdct on dvdk.ma_dich_vu_di_kem=hdct.ma_dich_vu_di_kem
+join furuma.hop_dong hd on hdct.ma_hop_dong=hd.ma_hop_dong
+where hdct.so_luong >=10 and year(hd.ngay_lam_hop_dong)=2020)as tmp);
     
     
     
