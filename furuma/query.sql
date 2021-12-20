@@ -5,11 +5,9 @@ SELECT
 FROM
     furuma.nhan_vien
 WHERE
-    ho_ten LIKE 'T%' OR ho_ten LIKE 'H%'
-        OR ho_ten LIKE 'K%'
-        AND (LENGTH(ho_ten) <= 15) ;
-        
-        
+    (ho_ten LIKE 'T%' OR ho_ten LIKE 'H%'
+        OR ho_ten LIKE 'K%')
+        AND (char_length(ho_ten) <= 15) ;
         
 -- câu 3  Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và
 -- có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.  
@@ -203,7 +201,8 @@ from furuma.khach_hang kh join furuma.loai_khach lk on kh.ma_loai_khach = lk.ma_
 		join furuma.hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang 
         join  furuma.hop_dong_chi_tiet hdct on  hd.ma_hop_dong = hdct.ma_hop_dong
         join furuma.dich_vu_di_kem  dvdk on  hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
-where kh.dia_chi like "%Vinh%" or kh.dia_chi like "%Quảng Ngãi%" AND lk.ten_loai_khach like "%Diamond%";
+where (kh.dia_chi like "%Vinh%" or kh.dia_chi like "%Quảng Ngãi%")
+AND lk.ten_loai_khach like "%Diamond%";
 
 
 
@@ -335,8 +334,8 @@ where hdct.so_luong >=10 and year(hd.ngay_lam_hop_dong)=2020)as tmp);
 -- câu 20 :Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ
 -- thống, thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang),
 -- ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
-select nhan_vien.ma_nhan_vien , nhan_vien.ho_ten , nhan_vien.email , nhan_vien.so_dien_thoai , nhan_vien.ngay_sinh , nhan_vien.dia_chi
-from furuma.nhan_vien
+select nhan_vien.ma_nhan_vien , nhan_vien.ho_ten , nhan_vien.email , nhan_vien.so_dien_thoai , nhan_vien.ngay_sinh , nhan_vien.dia_chi ,  (" Nhân viên") AS  `type`
+from furuma.nhan_vien 
 union all 
-select khach_hang.ma_khach_hang , khach_hang.ho_ten , khach_hang.email , khach_hang.so_dien_thoai , khach_hang.ngay_sinh , khach_hang.dia_chi
+select khach_hang.ma_khach_hang , khach_hang.ho_ten , khach_hang.email , khach_hang.so_dien_thoai , khach_hang.ngay_sinh , khach_hang.dia_chi ,("Khách Hàng") AS  `type`
 from furuma.khach_hang;

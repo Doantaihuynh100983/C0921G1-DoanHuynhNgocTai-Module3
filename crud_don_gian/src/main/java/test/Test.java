@@ -8,10 +8,7 @@ import java.util.List;
 public class Test {
 //    public static void main(String[] args) {
 //        StudentDao studentDao = new StudentDao();
-//        List<SinhVien> sinhVienList = studentDao.getAllStudent();
-//        for (SinhVien sinhVien  : sinhVienList) {
-//            System.out.println(sinhVien);
-//        }
-//
+//        SinhVien s = studentDao.getSinhVienByid(3);
+//        System.out.println(s);
 //    }
 }

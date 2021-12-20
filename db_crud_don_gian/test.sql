@@ -28,3 +28,7 @@ values (1,"TAI DOAN" , "DOANTAI@GMAIL.COM" , "NAM PHƯƠC _ DUY XUYEN"),
 
 select*from sinh_vien;
 delete from sinh_vien where sinh_vien_id = ?;
+
+insert into sinh_vien value(?,?,?,?);
+select * from sinh_vien where sinh_vien_id= 3;
+

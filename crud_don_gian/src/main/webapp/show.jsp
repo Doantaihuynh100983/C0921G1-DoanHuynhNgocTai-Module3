@@ -141,11 +141,16 @@
         <td>${x.sinh_vien_email}</td>
         <td>${x.sinh_vien_country}</td>
         <td>
-            <a href="">update</a>
+            <a href="update?sid=${x.sinh_vien_id}">update</a>
             <a href="#" onclick="showMess(${x.sinh_vien_id})">delete</a>
         </td>
     </tr>
     </c:forEach>
+    <thead>
+    <tr>
+        <th><h1><a href="add.jsp">ADD SINH_VIÊN</a> </h1></th>
+    </tr>
+    </thead>
 </table>
 </body>
 
