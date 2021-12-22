@@ -27,13 +27,15 @@ values
 
 insert into employee (employee_name,position_id,education_degree_id,division_id,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address)
 values
-("Tran Quoc Hoang",1,1,3,"2004-01-01","111111111",350,"0901234567","abc@gmail.com","quang nam"),
-("Ho Ngoc Dang Khoa",2,2,3,"2002-01-01","222222222",370,"0902345678","abc@gmail.com","da nang"),
-("Trinh Thi Khanh Ngoc",3,3,1,"1990-01-01","333333333",400,"0903456789","abc@gmail.com","quang nam"),
-("Nguyen Van T",4,2,2,"1989-01-01","444444444",500,"0904567890","abc@gmail.com","da nang"),
-("Nguyen Thi Kim",5,3,2,"1995-01-01","555555555",700,"0905678901","abc@gmail.com","quang nam"),
+-- ("Tran Quoc Hoang",1,1,3,"2004-01-01","111111111",350,"0901234567","abc@gmail.com","quang nam"),
+-- ("Ho Ngoc Dang Khoa",2,2,3,"2002-01-01","222222222",370,"0902345678","abc@gmail.com","da nang"),
+-- ("Trinh Thi Khanh Ngoc",3,3,1,"1990-01-01","333333333",400,"0903456789","abc@gmail.com","quang nam"),
+-- ("Nguyen Van T",4,2,2,"1989-01-01","444444444",500,"0904567890","abc@gmail.com","da nang"),
+-- ("Nguyen Thi Kim",5,3,2,"1995-01-01","555555555",700,"0905678901","abc@gmail.com","quang nam"),
 ("Tran Van Chanh",6,4,4,"1980-01-01","666666666",1300,"0906789012","abc@gmail.com","da nang");
 
+DELETE FROM employee WHERE employee_id = ?;
+select*from employee;
 
 insert into customer_type (customer_type_name)
 values

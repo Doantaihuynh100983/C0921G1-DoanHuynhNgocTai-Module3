@@ -16,6 +16,9 @@ public class Employee {
     private EducationDegree educationDegree;
     private Division division;
 
+    public Employee() {
+    }
+
     public Employee(int employeeId, String employeeName, Date employeeBirthday, String employeeIdCard, double employeeSalary, String employeePhone, String employeeEmail,
                     String employeeAddress) {
         this.employeeId = employeeId;
