@@ -3,4 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/bai_tap/practice_layout_bootstrap/test.html" />
+  </component>
 </project>
