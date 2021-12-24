@@ -33,4 +33,54 @@ public class ProductServiceImpl implements ProductService{
         }
         return pruductList;
     }
+
+
+    @Override
+    public void addProduct(String name,double gia ,String images) {
+        String query = "insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?)";
+        try {
+                conn = new DBConnect().getConnect();
+                ps = conn.prepareStatement(query);
+                ps.setString(1,name);
+                ps.setDouble(2,gia);
+                ps.setString(3,images);
+                ps.executeUpdate();
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
+
+    @Override
+    public Pruduct getProductById(int id) {
+        String query = "select * from san_pham where id_sanpham = ?";
+        try {
+            conn = new DBConnect().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                return new Pruduct(rs.getString("name_sanpham"),
+                        rs.getDouble("price_sanpham"),
+                        rs.getString("image_sanpham"));
+            }
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteProduct(int id) {
+        String query = "DELETE FROM san_pham WHERE id_sanpham = ?";
+        try {
+            conn = new DBConnect().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,id);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
+
 }

@@ -12,7 +12,11 @@ public class Pruduct {
         this.gia = gia;
         this.images = images;
     }
-
+    public Pruduct( String name, double gia, String images) {
+        this.name = name;
+        this.gia = gia;
+        this.images = images;
+    }
     public Pruduct() {
     }
 

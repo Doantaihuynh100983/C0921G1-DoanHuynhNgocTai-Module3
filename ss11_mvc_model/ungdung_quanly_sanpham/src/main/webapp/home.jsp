@@ -21,6 +21,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <!-- Navigation-->
@@ -69,7 +75,7 @@
 <!-- Section-->
 <section class="py-5">
     <div class="text-center">
-        <a class="btn btn-outline-dark mt-auto" href="#">ADD PRODUCT</a>
+        <a class="btn btn-outline-dark mt-auto" href="add.jsp">ADD PRODUCT</a>
     </div>
 
     <div class="container px-4 px-lg-5 mt-5">
@@ -84,22 +90,50 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder"><c:out value="${product.name}"/></h5>
+                                <h5 class="fw-bolder"><a href="/product?action=detail&pid=${product.id}"><c:out
+                                        value="${product.name}"/></a></h5>
                                 <!-- Product price-->
                                 <c:out value="${product.gia}"/>
                             </div>
                         </div>
+
+
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-start">
                                 <a class="btn btn-outline-dark mt-auto" href="#">View options</a>
-                                <a class="btn btn-outline-dark mt-auto" href="#">Delete</a>
+                                <a class="btn btn-outline-dark mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal-${product.id}">DeLeTe</a>
                             </div>
 
                         </div>
                     </div>
                 </div>
+
+
+                <div class="modal fade" id="exampleModal-${product.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: red">BẠN CÓ MUỐN XÓA SẢN PHẨM</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                    ${product.name}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a type="button" class="btn btn-danger">DELETE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </c:forEach>
+            <!-- Button trigger modal -->
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+
         </div>
     </div>
 

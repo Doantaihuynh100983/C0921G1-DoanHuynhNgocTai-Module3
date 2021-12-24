@@ -15,8 +15,10 @@ values("Bánh Trung thu Richy 2021 – Dạ Nguyệt" , 45.999,"https://vcdn-kin
 ("Bánh Trung thu Richy 2021 – Vạn Cúc", 99.000 , "https://viettinlaw.com/wp-content/uploads/2020/05/Ch%E1%BB%89-ti%C3%AAu-ki%E1%BB%83m-nghi%E1%BB%87m-b%C3%A1nh-trung-thu1.jpg"),
 ("Bánh Trung thu Richy 2021 – Bách Hạc", 199.000 , "https://banhtrungthu.tinyprettycake.com/wp-content/uploads/2020/07/DSC0279-1.jpg"),
 ("Bánh Trung thu Richy 2021 – Thanh Loan", 300.000 , "https://kenhphunu.com/images1/072017/1506531600/cach-lam-banh-trung-thu-hoa-noi-dep-lung-linh-khong-he-kho-tin-am-thuc-1.jpg"),
-("Bánh Trung thu Richy 2021 – Thanh Phúc", 400.000 , "https://lh3.googleusercontent.com/proxy/WKPSJRwda1H2-t2Fi16Bce4iRP8ycZDDhPIPkkix3xfv2lKAVbKgPmBagL3NGJdp92Lk5aRzcPB7B1bBTPoYCZ-XRjax75zV4QgP0VkwuWwyOVtXSegkEByA_py--E2-mPITvEpWy4hZ_Su8EAUv4xanBYoAUbRF2dAGil5-L0xxoSKYockF639SAdIryazfgPNANGA"),
+("Bánh Trung thu Richy 2021 – Thanh Phúc", 400.000 , "https://binhvinhsaigon.com.vn/data/upload/banh-trung-thu-lafeve-6.jpg"),
 ("Bánh Trung thu Richy 2021 – Hoàng Nguyệt", 600.000 , "http://img.fica.vn/images/2017/09/04/fica-1801504489771.jpg"),
 ("Bánh Trung thu Richy 2021 – Cát Tiên", 900.000 , "https://www.chudu24.com/wp-content/uploads/2017/09/19-25.jpg");
 
-select * from san_pham;
+select * from san_pham ;
+--  DELETE FROM san_pham WHERE id_sanpham = 2;
+-- insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?);
