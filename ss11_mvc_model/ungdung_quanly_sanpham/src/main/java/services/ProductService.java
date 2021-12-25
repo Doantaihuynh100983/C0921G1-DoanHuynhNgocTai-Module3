@@ -9,4 +9,5 @@ public interface ProductService {
         void addProduct(String name,double gia ,String images);
         Pruduct getProductById(int id);
         void deleteProduct(int id);
+        List<Pruduct> searchProduct(String txt);
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet" , urlPatterns = {"" , "/product"})
@@ -30,6 +31,7 @@ public class ProductServlet extends HttpServlet {
                 case "edit":
 
                     break;
+
                 default:
                     getAllProduct(request, response);
                     break;
@@ -57,8 +59,12 @@ public class ProductServlet extends HttpServlet {
                 case "detail":
                     getProductById(request,response);
                     break;
+                case "search":
+                    searchProduct(request,response);
+                    break;
                 default:
                     getAllProduct(request, response);
+
                     break;
             }
         } catch (Exception ex) {
@@ -79,7 +85,7 @@ public class ProductServlet extends HttpServlet {
 
     public void addProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             String name = request.getParameter("product_name");
-            Double gia = Double.parseDouble(request.getParameter("product_price"));
+            double gia = Double.parseDouble(request.getParameter("product_price"));
             String images = request.getParameter("product_images");
           ProductService productService = new ProductServiceImpl();
          productService.addProduct(name, gia, images);
@@ -106,5 +112,13 @@ public class ProductServlet extends HttpServlet {
         response.sendRedirect("product");
     }
 
+    public void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+            String text = request.getParameter("txt_name");
+            ProductService productService = new ProductServiceImpl();
+            List<Pruduct>  pruductList = productService.searchProduct(text);
+
+              request.setAttribute("pruductList",pruductList);
+             request.getRequestDispatcher("home.jsp").forward(request,response);
+    }
 
 }

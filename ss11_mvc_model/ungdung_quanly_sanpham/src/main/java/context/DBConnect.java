@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnect {
-    public static final String url = "jdbc:mysql://localhost:3306/quanly_sanpham";
+    public static final String url = "jdbc:mysql://localhost:3306/quanly_sanpham?useUnicode=true&characterEncoding=utf-8";
     public static final String user = "root";
     public static final String pass = "123456789";
 

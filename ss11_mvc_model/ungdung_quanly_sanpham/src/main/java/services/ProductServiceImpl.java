@@ -13,13 +13,17 @@ public class ProductServiceImpl implements ProductService{
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    private static final String getAllProduct = "select * from san_pham";
+    private static final String addProduct = "insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?)";
+    private static final String getProductById = "select * from san_pham where id_sanpham = ?";
+    private static final String deleteProduct = "DELETE FROM san_pham WHERE id_sanpham = ?";
+    private static final String searchProduct = "select * from san_pham where name_sanpham like ?";
     @Override
     public List<Pruduct> getAllProduct() {
         List<Pruduct> pruductList = new ArrayList<>();
-        String query = "select * from san_pham";
         try {
                 conn = new DBConnect().getConnect();
-                ps = conn.prepareStatement(query);
+                ps = conn.prepareStatement(getAllProduct);
                 rs = ps.executeQuery();
                 while (rs.next()){
                     pruductList.add(new Pruduct(rs.getInt(1),
@@ -37,10 +41,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void addProduct(String name,double gia ,String images) {
-        String query = "insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?)";
         try {
                 conn = new DBConnect().getConnect();
-                ps = conn.prepareStatement(query);
+                ps = conn.prepareStatement(addProduct);
                 ps.setString(1,name);
                 ps.setDouble(2,gia);
                 ps.setString(3,images);
@@ -52,10 +55,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Pruduct getProductById(int id) {
-        String query = "select * from san_pham where id_sanpham = ?";
         try {
             conn = new DBConnect().getConnect();
-            ps = conn.prepareStatement(query);
+            ps = conn.prepareStatement(getProductById);
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while (rs.next()){
@@ -72,15 +74,47 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void deleteProduct(int id) {
-        String query = "DELETE FROM san_pham WHERE id_sanpham = ?";
         try {
             conn = new DBConnect().getConnect();
-            ps = conn.prepareStatement(query);
+            ps = conn.prepareStatement(deleteProduct);
             ps.setInt(1,id);
             ps.executeUpdate();
         }catch (Exception e){
             e.getMessage();
         }
     }
+
+    @Override
+    public List<Pruduct> searchProduct(String txt) {
+        List<Pruduct> pruductList = new ArrayList<>();
+            try {
+                conn = new DBConnect().getConnect();
+                ps = conn.prepareStatement(searchProduct);
+                ps.setString(1,"%"+txt+"%");
+                rs = ps.executeQuery();
+                while (rs.next()){
+                    pruductList.add(new Pruduct(
+                            rs.getInt("id_sanpham"),
+                            rs.getString("name_sanpham"),
+                            rs.getDouble("price_sanpham"),
+                            rs.getString("image_sanpham")));
+                }
+
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+
+
+        return pruductList;
+    }
+
+//    public static void main(String[] args) {
+//        ProductService productService = new ProductServiceImpl();
+//        List<Pruduct> pruductList = productService.searchProduct("Dạ Nguyệt");
+//        for (Pruduct pruduct : pruductList){
+//            System.out.println(pruduct);
+//        }
+//    }
 
 }

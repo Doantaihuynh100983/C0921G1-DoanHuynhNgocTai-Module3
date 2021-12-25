@@ -22,3 +22,4 @@ values("Bánh Trung thu Richy 2021 – Dạ Nguyệt" , 45.999,"https://vcdn-kin
 select * from san_pham ;
 --  DELETE FROM san_pham WHERE id_sanpham = 2;
 -- insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?);
+-- select * from san_pham where name_sanpham like ? chưa seach được
