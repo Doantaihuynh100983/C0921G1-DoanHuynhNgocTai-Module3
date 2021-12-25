@@ -26,7 +26,7 @@ public class ProductServlet extends HttpServlet {
         try {
             switch (action) {
                 case "create":
-                        addProduct(request,response);
+                    addProduct(request,response);
                     break;
                 case "edit":
 
@@ -51,7 +51,7 @@ public class ProductServlet extends HttpServlet {
         try {
             switch (action) {
                 case "edit":
-
+                    editProductById(request,response);
                     break;
                 case "delete":
                     deleteProduct(request,response);
@@ -87,9 +87,9 @@ public class ProductServlet extends HttpServlet {
             String name = request.getParameter("product_name");
             double gia = Double.parseDouble(request.getParameter("product_price"));
             String images = request.getParameter("product_images");
-          ProductService productService = new ProductServiceImpl();
-         productService.addProduct(name, gia, images);
-         response.sendRedirect("product");
+             ProductService productService = new ProductServiceImpl();
+             productService.addProduct(name, gia, images);
+          response.sendRedirect("product");
 
 
     }
@@ -112,6 +112,7 @@ public class ProductServlet extends HttpServlet {
         response.sendRedirect("product");
     }
 
+
     public void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             String text = request.getParameter("txt_name");
             ProductService productService = new ProductServiceImpl();
@@ -121,4 +122,12 @@ public class ProductServlet extends HttpServlet {
              request.getRequestDispatcher("home.jsp").forward(request,response);
     }
 
+    public void editProductById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("eid"));
+        ProductService productService = new ProductServiceImpl();
+        Pruduct pruduct = productService.getProductById(id);
+        request.setAttribute("pd", pruduct);
+        request.getRequestDispatcher("update.jsp").forward(request,response);
+
+    }
 }

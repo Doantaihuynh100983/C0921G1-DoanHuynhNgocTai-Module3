@@ -124,6 +124,7 @@
                                     options</a>
                                 <a class="btn btn-outline-dark mt-auto" type="button" data-bs-toggle="modal"
                                    data-bs-target="#exampleModal-${product.id}">DeLeTe</a>
+                                <a class="btn btn-outline-dark mt-auto" href="/product?action=edit&eid=${product.id}">Update</a>
                             </div>
 
                         </div>

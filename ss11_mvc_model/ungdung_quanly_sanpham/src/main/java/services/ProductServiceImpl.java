@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService{
     private static final String getProductById = "select * from san_pham where id_sanpham = ?";
     private static final String deleteProduct = "DELETE FROM san_pham WHERE id_sanpham = ?";
     private static final String searchProduct = "select * from san_pham where name_sanpham like ?";
+    private static final String updateProduct = "UPDATE san_pham SET name_sanpham=?, price_sanpham=? , image_sanpham=?  WHERE id_sanpham = ?";
     @Override
     public List<Pruduct> getAllProduct() {
         List<Pruduct> pruductList = new ArrayList<>();
@@ -61,7 +62,9 @@ public class ProductServiceImpl implements ProductService{
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while (rs.next()){
-                return new Pruduct(rs.getString("name_sanpham"),
+                return new Pruduct(
+                        rs.getInt("id_sanpham"),
+                        rs.getString("name_sanpham"),
                         rs.getDouble("price_sanpham"),
                         rs.getString("image_sanpham"));
             }
@@ -109,12 +112,6 @@ public class ProductServiceImpl implements ProductService{
         return pruductList;
     }
 
-//    public static void main(String[] args) {
-//        ProductService productService = new ProductServiceImpl();
-//        List<Pruduct> pruductList = productService.searchProduct("Dạ Nguyệt");
-//        for (Pruduct pruduct : pruductList){
-//            System.out.println(pruduct);
-//        }
-//    }
+
 
 }
