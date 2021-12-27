@@ -13,10 +13,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css">
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css">
-
+        <style>
+           .search input[type="text"] {
+                width: 130px;
+                box-sizing: border-box;
+                border: 1px solid black;
+                border-radius: 4px;
+                outline:none;
+                padding: 12px 14px;
+            }
+           .search input[type="text"]:focus{
+               width:500px;
+           }
+        </style>
 </head>
 <body>
-<a href="/product?actionProduct=addProduct"><button>ADD NEW PRODUCT</button></a>
+<div>
+
+        <a href="/product?actionProduct=addProduct" style="text-align: left"><button>ADD NEW PRODUCT</button></a>
+    <form style="text-align: right" action="/product">
+        <input type="hidden" value="search" name="actionProduct"/>
+        <input class="search" type="text" name="search" placeholder="Search..">
+    </form>
+
+</div>
+
+
 
 <table id="tableProduct" class="table table-sm table-dark">
     <thead>
@@ -33,7 +55,7 @@
     <c:forEach var="product" items="${product}">
     <tr>
         <th scope="row">${product.id}</th>
-        <td>${product.tenSanPham}</td>
+        <td><a href="/product?actionProduct=views&uid=${product.id}">${product.tenSanPham}</a></td>
         <td>${product.giaSanPham}</td>
         <td>${product.moTaSanPham}</td>
         <td>${product.nhaSanPham}</td>
@@ -42,7 +64,7 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-${product.id}">
                    DELETE
             </button>
-            <button>UPDATE</button>
+            <button  type="button" class="btn btn-primary"><a href="/product?actionProduct=showUpdate&uid=${product.id}" style="text-decoration: none ; color: white">UPDATE</a></button>
         </td>
 
     </tr>
