@@ -112,6 +112,21 @@ public class ProductServiceImpl implements ProductService{
         return pruductList;
     }
 
+    @Override
+    public void updateProduct(String name, double gia, String images, int id) {
+            try {
+                conn = new DBConnect().getConnect();
+                ps = conn.prepareStatement(updateProduct);
+                ps.setString(1,name);
+                ps.setDouble(2,gia);
+                ps.setString(3,images);
+                ps.setInt(4,id);
+                ps.executeUpdate();
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+    }
 
 
 }

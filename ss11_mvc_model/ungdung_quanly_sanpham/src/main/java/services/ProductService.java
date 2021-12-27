@@ -10,4 +10,5 @@ public interface ProductService {
         Pruduct getProductById(int id);
         void deleteProduct(int id);
         List<Pruduct> searchProduct(String txt);
+        void updateProduct(String name,double gia ,String images,int id);
 }

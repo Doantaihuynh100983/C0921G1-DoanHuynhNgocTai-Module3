@@ -29,7 +29,7 @@ public class ProductServlet extends HttpServlet {
                     addProduct(request,response);
                     break;
                 case "edit":
-
+                    updateProduct(request,response);
                     break;
 
                 default:
@@ -74,11 +74,10 @@ public class ProductServlet extends HttpServlet {
     }
 
 
-
+    ProductService productService = new ProductServiceImpl();
     public void getAllProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        ProductService productService = new ProductServiceImpl();
-        List<Pruduct>  pruductList = productService.getAllProduct();
 
+        List<Pruduct>  pruductList = productService.getAllProduct();
         request.setAttribute("pruductList",pruductList);
         request.getRequestDispatcher("home.jsp").forward(request,response);
     }
@@ -87,7 +86,6 @@ public class ProductServlet extends HttpServlet {
             String name = request.getParameter("product_name");
             double gia = Double.parseDouble(request.getParameter("product_price"));
             String images = request.getParameter("product_images");
-             ProductService productService = new ProductServiceImpl();
              productService.addProduct(name, gia, images);
           response.sendRedirect("product");
 
@@ -97,7 +95,6 @@ public class ProductServlet extends HttpServlet {
 
     public void getProductById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             int id = Integer.parseInt(request.getParameter("pid"));
-            ProductService productService = new ProductServiceImpl();
            Pruduct pruduct = productService.getProductById(id);
            request.setAttribute("productById", pruduct);
            request.getRequestDispatcher("deital.jsp").forward(request,response);
@@ -106,8 +103,6 @@ public class ProductServlet extends HttpServlet {
 
     public void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int id = Integer.parseInt(request.getParameter("did"));
-
-        ProductService productService = new ProductServiceImpl();
         productService.deleteProduct(id);
         response.sendRedirect("product");
     }
@@ -115,7 +110,6 @@ public class ProductServlet extends HttpServlet {
 
     public void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             String text = request.getParameter("txt_name");
-            ProductService productService = new ProductServiceImpl();
             List<Pruduct>  pruductList = productService.searchProduct(text);
 
               request.setAttribute("pruductList",pruductList);
@@ -124,10 +118,23 @@ public class ProductServlet extends HttpServlet {
 
     public void editProductById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int id = Integer.parseInt(request.getParameter("eid"));
-        ProductService productService = new ProductServiceImpl();
         Pruduct pruduct = productService.getProductById(id);
         request.setAttribute("pd", pruduct);
         request.getRequestDispatcher("update.jsp").forward(request,response);
+
+    }
+
+    public void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("product_id"));
+        String name = request.getParameter("product_name");
+        double gia  = Double.parseDouble(request.getParameter("product_price"));
+        String images = request.getParameter("product_images");
+
+        productService.updateProduct(name,gia,images,id);
+
+        response.sendRedirect("product");
+
+
 
     }
 }

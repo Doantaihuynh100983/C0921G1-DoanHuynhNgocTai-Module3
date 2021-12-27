@@ -11,7 +11,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<form class="form-horizontal" action="/product" method="post">
+<form class="form-horizontal" action="/product?action=edit" method="post">
     <fieldset>
 
         <!-- Form Name -->
@@ -43,7 +43,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_name">PRODUCT IMAGES LINK</label>
             <div class="col-md-4">
-                <input id="product_images" name="product_images" placeholder="PRODUCT IMAGES LINK" class="form-control input-md" required="" type="text" value="${pd.images}">
+                <input id="product_images" name="product_images" placeholder="PRODUCT IMAGES LINK" class="form-control input-md" required="" type="text" value="${pd.images}" readonly>
 
             </div>
         </div>
