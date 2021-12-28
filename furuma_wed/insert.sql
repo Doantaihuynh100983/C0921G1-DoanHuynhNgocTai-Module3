@@ -44,7 +44,7 @@ values
 ("Gold"),
 ("Silver"),
 ("Member");
-
+select * from customer_type;
 
 insert into customer (customer_type_id ,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address)
 values

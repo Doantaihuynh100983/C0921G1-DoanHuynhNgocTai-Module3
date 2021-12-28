@@ -19,7 +19,10 @@ values("Bánh Trung thu Richy 2021 – Dạ Nguyệt" , 45.999,"https://vcdn-kin
 ("Bánh Trung thu Richy 2021 – Hoàng Nguyệt", 600.000 , "http://img.fica.vn/images/2017/09/04/fica-1801504489771.jpg"),
 ("Bánh Trung thu Richy 2021 – Cát Tiên", 900.000 , "https://www.chudu24.com/wp-content/uploads/2017/09/19-25.jpg");
 
-select * from san_pham where id_sanpham = 1 ;
+-- select * from san_pham where id_sanpham = ? ;
 --  DELETE FROM san_pham WHERE id_sanpham = 2;
 -- insert into san_pham(name_sanpham,price_sanpham,image_sanpham) values (?,?,?);
--- select * from san_pham where name_sanpham like ? chưa seach được
+-- select * from san_pham where name_sanpham like ? 
+
+-- UPDATE san_pham SET name_sanpham=?, price_sanpham=? , image_sanpham=?  WHERE id_sanpham = ? 
+

@@ -1,60 +1,93 @@
 package bean;
 
+import java.util.Date;
+
 public class Contract {
-    private int soHopDong;
-    private String maBooking;
-    private double soTienCocTruoc;
-    private double tongTienThanhToan;
-    private String maKhachHang;
+    private int contractId;
+    private Date contractStartDate;
+    private Date contractEndDate;
+    private int contractDeposit;
+    private int contractTotalMoney;
+    private Employee employee;
+    private Customer customer;
+    private Service service;
 
     public Contract() {
     }
 
-    public Contract(int soHopDong, String maBooking, double soTienCocTruoc, double tongTienThanhToan, String maKhachHang) {
-        this.soHopDong = soHopDong;
-        this.maBooking = maBooking;
-        this.soTienCocTruoc = soTienCocTruoc;
-        this.tongTienThanhToan = tongTienThanhToan;
-        this.maKhachHang = maKhachHang;
+    public Contract(int contractId, Date contractStartDate, Date contractEndDate,
+                    int contractDeposit, int contractTotalMoney, Employee employee, Customer customer, Service service) {
+        this.contractId = contractId;
+        this.contractStartDate = contractStartDate;
+        this.contractEndDate = contractEndDate;
+        this.contractDeposit = contractDeposit;
+        this.contractTotalMoney = contractTotalMoney;
+        this.employee = employee;
+        this.customer = customer;
+        this.service = service;
     }
 
-    public int getSoHopDong() {
-        return soHopDong;
+    public int getContractId() {
+        return contractId;
     }
 
-    public void setSoHopDong(int soHopDong) {
-        this.soHopDong = soHopDong;
+    public void setContractId(int contractId) {
+        this.contractId = contractId;
     }
 
-    public String getMaBooking() {
-        return maBooking;
+    public Date getContractStartDate() {
+        return contractStartDate;
     }
 
-    public void setMaBooking(String maBooking) {
-        this.maBooking = maBooking;
+    public void setContractStartDate(Date contractStartDate) {
+        this.contractStartDate = contractStartDate;
     }
 
-    public double getSoTienCocTruoc() {
-        return soTienCocTruoc;
+    public Date getContractEndDate() {
+        return contractEndDate;
     }
 
-    public void setSoTienCocTruoc(double soTienCocTruoc) {
-        this.soTienCocTruoc = soTienCocTruoc;
+    public void setContractEndDate(Date contractEndDate) {
+        this.contractEndDate = contractEndDate;
     }
 
-    public double getTongTienThanhToan() {
-        return tongTienThanhToan;
+    public int getContractDeposit() {
+        return contractDeposit;
     }
 
-    public void setTongTienThanhToan(double tongTienThanhToan) {
-        this.tongTienThanhToan = tongTienThanhToan;
+    public void setContractDeposit(int contractDeposit) {
+        this.contractDeposit = contractDeposit;
     }
 
-    public String getMaKhachHang() {
-        return maKhachHang;
+    public int getContractTotalMoney() {
+        return contractTotalMoney;
     }
 
-    public void setMaKhachHang(String maKhachHang) {
-        this.maKhachHang = maKhachHang;
+    public void setContractTotalMoney(int contractTotalMoney) {
+        this.contractTotalMoney = contractTotalMoney;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 }

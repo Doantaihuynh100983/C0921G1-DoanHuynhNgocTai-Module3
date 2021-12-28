@@ -1,46 +1,134 @@
 package bean;
 
-import bean.Person;
-
 import java.util.Date;
 
-public class Employee extends Person {
-    private String trinhDo;
-    private String viTri;
-    private double luong ;
+public class Employee {
+    private int employeeId;
+    private String employeeName;
+    private Date employeeBirthday;
+    private String employeeIdCard;
+    private double employeeSalary;
+    private String employeePhone;
+    private String employeeEmail;
+    private String employeeAddress;
+    private Position position;
+    private EducationDegree educationDegree;
+    private Division division;
+    private User user;
 
     public Employee() {
     }
 
-
-    public Employee(int maSo, String hoTen, Date ngaySinh, int gioiTinh, int cmnd, int soDienThoai, String email, String trinhDo, String viTri, double luong) {
-        super(maSo, hoTen, ngaySinh, gioiTinh, cmnd, soDienThoai, email);
-        this.trinhDo = trinhDo;
-        this.viTri = viTri;
-        this.luong = luong;
+    public Employee(int employeeId, String employeeName, Date employeeBirthday, String employeeIdCard,
+                    double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress,
+                    Position position, EducationDegree educationDegree, Division division, User user) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.user = user;
     }
 
-    public String getTrinhDo() {
-        return trinhDo;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setTrinhDo(String trinhDo) {
-        this.trinhDo = trinhDo;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getViTri() {
-        return viTri;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setViTri(String viTri) {
-        this.viTri = viTri;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
-    public double getLuong() {
-        return luong;
+    public Date getEmployeeBirthday() {
+        return employeeBirthday;
     }
 
-    public void setLuong(double luong) {
-        this.luong = luong;
+    public void setEmployeeBirthday(Date employeeBirthday) {
+        this.employeeBirthday = employeeBirthday;
+    }
+
+    public String getEmployeeIdCard() {
+        return employeeIdCard;
+    }
+
+    public void setEmployeeIdCard(String employeeIdCard) {
+        this.employeeIdCard = employeeIdCard;
+    }
+
+    public double getEmployeeSalary() {
+        return employeeSalary;
+    }
+
+    public void setEmployeeSalary(double employeeSalary) {
+        this.employeeSalary = employeeSalary;
+    }
+
+    public String getEmployeePhone() {
+        return employeePhone;
+    }
+
+    public void setEmployeePhone(String employeePhone) {
+        this.employeePhone = employeePhone;
+    }
+
+    public String getEmployeeEmail() {
+        return employeeEmail;
+    }
+
+    public void setEmployeeEmail(String employeeEmail) {
+        this.employeeEmail = employeeEmail;
+    }
+
+    public String getEmployeeAddress() {
+        return employeeAddress;
+    }
+
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
+    }
+
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
