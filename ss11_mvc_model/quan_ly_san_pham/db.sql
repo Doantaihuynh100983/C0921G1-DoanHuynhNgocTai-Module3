@@ -11,7 +11,7 @@ create table san_pham(
 
 
 
-select * from san_pham where ten_san_pham like "%QUY BƠ%" ;
+select * from san_pham where ten_san_pham like ?;
 insert into san_pham(ten_san_pham,gia_san_pham,mo_ta_san_pham,nha_san_xuat)
 values ("BÁNH QUY BƠ DANISA",90.98 , "BÁNH QUY BƠ DANISA SÔCÔLA HẠT ĐIỀU 90G" , "Kinh Đô"),
  ("KẸO DẺO TRÁI CÂY ",23.98 , "BÁNH QUY BƠ DANISA SÔCÔLA HẠT ĐIỀU 90G" , "Kinh Đô"),

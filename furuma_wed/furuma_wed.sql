@@ -1,5 +1,5 @@
-create database furuma_wed;
-use furuma_wed;
+create database furumawed;
+use furumawed;
 
 create table position (
 	position_id int primary key  auto_increment,
@@ -66,13 +66,12 @@ create table customer(
     customer_name varchar(45) not null , 
     customer_birthday date not null,
     customer_gender bit (1) not null,
-    customer_id_card varchar(45) not null , 
-	customer_phone varchar(45) not null , 
+    customer_id_card int not null , 
+	customer_phone  int not null , 
     customer_email varchar(45) not null , 
 	customer_address varchar(45) not null ,
     foreign key (customer_type_id) references customer_type (customer_type_id)
 );
-
 
 create table rent_type(
 	rent_type_id int primary key auto_increment,
