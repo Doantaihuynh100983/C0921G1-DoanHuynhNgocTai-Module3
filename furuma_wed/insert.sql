@@ -34,8 +34,7 @@ values
 -- ("Nguyen Thi Kim",5,3,2,"1995-01-01","555555555",700,"0905678901","abc@gmail.com","quang nam"),
 ("Tran Van Chanh",6,4,4,"1980-01-01","666666666",1300,"0906789012","abc@gmail.com","da nang");
 
--- DELETE FROM employee WHERE employee_id = ?;
--- select*from employee;
+
 
 insert into customer_type (customer_type_name)
 values
@@ -44,24 +43,35 @@ values
 ("Gold"),
 ("Silver"),
 ("Member");
-select * from customer_type;
+select * from customer_type where customer_type_id = 1;
 
-insert into customer (customer_type_id ,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address)
-values
-(1,"Nguyen Van A","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
-(2,"Nguyen Van B","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
-(1,"Nguyen Van C","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
-(5,"Nguyen Van D","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
-(2,"Nguyen Van F","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
-(4,"Nguyen Van H","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue"),
-(1,"Nguyen Van K","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
-(2,"Nguyen Van J","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
-(1,"Nguyen Van L","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
-(5,"Nguyen Van P","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
-(2,"Nguyen Van O","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
-(4,"Nguyen Van R","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue");
+insert into customer (customer_type_id ,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) values
+-- (-- 1,"Nguyen Van A","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
+-- (2,"Nguyen Van B","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
+-- (1,"Nguyen Van C","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
+-- (5,"Nguyen Van D","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
+-- (2,"Nguyen Van F","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
+-- (4,"Nguyen Van H","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue"),
+-- (1,"Nguyen Van K","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
+-- (2,"Nguyen Van J","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
+-- (1,"Nguyen Van L","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
+-- (5,"Nguyen Van P","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
+-- (2,"Nguyen Van O","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
+-- (4,"Nguyen Van R","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue"),
+(1,"Nguyen Van AQ","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
+(2,"Nguyen Van BC","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
+(1,"Nguyen Van CT","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
+(5,"Nguyen Van DB","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
+(2,"Nguyen Van FY","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
+(4,"Nguyen Van HN","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue"),
+(1,"Nguyen Van TK","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
+(2,"Nguyen Van JN","2002-01-01",0,"222222222","0902345678","abc@gmail.com","Quang Ngai"),
+(1,"Nguyen Van LV","1990-01-01",1,"333333333","0903456789","abc@gmail.com","Vinh"),
+(5,"Nguyen Van PN","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
+(2,"Nguyen Van OY","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
+(4,"Nguyen Van BB","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue");
 
-select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id;
+-- select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id;
 	
 insert into rent_type (rent_type_name,rent_type_cost)
 values

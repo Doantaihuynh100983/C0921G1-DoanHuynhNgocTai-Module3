@@ -8,18 +8,19 @@ public class Customer {
     private String customerName;
     private Date customerBirthday;
     private boolean customerGender;
-    private String customerIdCard;
-    private String customerPhone;
+    private int customerIdCard;
+    private int customerPhone;
     private String customerEmail;
     private String customerAddress;
 
     public Customer() {
     }
 
-    public Customer(int customerId, CustomerType customerType, String customerName, Date customerBirthday,
+    public Customer( String customerName, Date customerBirthday,
                     boolean customerGender,
-                    String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
-        this.customerId = customerId;
+                    int customerIdCard, int customerPhone,
+                    String customerEmail, String customerAddress ,
+                    CustomerType customerType) {
         this.customerType = customerType;
         this.customerName = customerName;
         this.customerBirthday = customerBirthday;
@@ -29,6 +30,7 @@ public class Customer {
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
     }
+
 
     public int getCustomerId() {
         return customerId;
@@ -70,19 +72,19 @@ public class Customer {
         this.customerGender = customerGender;
     }
 
-    public String getCustomerIdCard() {
+    public int getCustomerIdCard() {
         return customerIdCard;
     }
 
-    public void setCustomerIdCard(String customerIdCard) {
+    public void setCustomerIdCard(int customerIdCard) {
         this.customerIdCard = customerIdCard;
     }
 
-    public String getCustomerPhone() {
+    public int getCustomerPhone() {
         return customerPhone;
     }
 
-    public void setCustomerPhone(String customerPhone) {
+    public void setCustomerPhone(int customerPhone) {
         this.customerPhone = customerPhone;
     }
 
@@ -100,5 +102,20 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerType=" + customerType +
+                ", customerName='" + customerName + '\'' +
+                ", customerBirthday=" + customerBirthday +
+                ", customerGender=" + customerGender +
+                ", customerIdCard=" + customerIdCard +
+                ", customerPhone=" + customerPhone +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                '}';
     }
 }

@@ -37,14 +37,6 @@ public class Dao {
         return productList;
     }
 
-    public static void main(String[] args) {
-        Dao d = new Dao();
-        List<Product> productList = d.getAllProduct();
-        for (Product p : productList){
-            System.out.println(p);
-        }
-
-    }
 
         public List<Category> getAllCategory(){
             List<Category> categories = new ArrayList<>();
