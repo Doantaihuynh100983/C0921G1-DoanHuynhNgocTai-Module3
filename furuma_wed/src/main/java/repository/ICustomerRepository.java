@@ -10,4 +10,8 @@ public interface ICustomerRepository {
     List<CustomerType> getAllCustomerType();
     void inserCustomer(Customer customer);
     CustomerType customerType(int id);
+    Customer customerById(int id);
+    void updateCustomer(Customer customer);
+    void deleteCustomer(int id);
+    List<Customer> searchCustomer(String name);
 }

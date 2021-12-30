@@ -12,6 +12,15 @@ public class Customer {
     private int customerPhone;
     private String customerEmail;
     private String customerAddress;
+    private int flag_delete;
+
+    public int getFlag_delete() {
+        return flag_delete;
+    }
+
+    public void setFlag_delete(int flag_delete) {
+        this.flag_delete = flag_delete;
+    }
 
     public Customer() {
     }

@@ -43,7 +43,7 @@ values
 ("Gold"),
 ("Silver"),
 ("Member");
-select * from customer_type where customer_type_id = 1;
+
 
 insert into customer (customer_type_id ,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) values
 -- (-- 1,"Nguyen Van A","2004-01-01",1,"111111111","0901234567","abc@gmail.com","Da Nang"),
@@ -71,8 +71,16 @@ insert into customer (customer_type_id ,customer_name,customer_birthday,customer
 (2,"Nguyen Van OY","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
 (4,"Nguyen Van BB","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue");
 
--- select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id;
-	
+-- select * from customer ;
+-- UPDATE customer SET flag_delete=0  WHERE customer_id= ?;
+
+-- UPDATE customer SET   customer_name = ? ,customer_birthday = ? ,customer_gender = ? ,customer_id_card = ?,customer_phone = ?,customer_email = ? ,customer_address = ? ,customer_type_id = ? WHERE customer_id = ?;
+
+
+-- select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id where flag_delete = 1;
+
+select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id where customer_name like ?;
+
 insert into rent_type (rent_type_name,rent_type_cost)
 values
 ("Nam",80),

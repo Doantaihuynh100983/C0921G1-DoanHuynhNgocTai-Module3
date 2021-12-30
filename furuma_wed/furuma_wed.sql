@@ -72,6 +72,8 @@ create table customer(
 	customer_address varchar(45) not null ,
     foreign key (customer_type_id) references customer_type (customer_type_id)
 );
+ALTER TABLE customer ADD flag_delete int  default 1;
+
 
 create table rent_type(
 	rent_type_id int primary key auto_increment,

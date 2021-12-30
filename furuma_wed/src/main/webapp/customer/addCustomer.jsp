@@ -23,33 +23,34 @@
     <legend>CUSTOMER</legend>
 
 
+    <%--        <!-- Text input-->--%>
+    <%--        <div class="form-group">--%>
+    <%--            <label class="col-md-4 control-label" for="product_id">Customer ID</label>--%>
+    <%--            <div class="col-md-4">--%>
+    <%--                <input id="product_id" name="customer_id" placeholder="Customer ID" class="form-control input-md" required="" type="text">--%>
 
-<%--        <!-- Text input-->--%>
-<%--        <div class="form-group">--%>
-<%--            <label class="col-md-4 control-label" for="product_id">Customer ID</label>--%>
-<%--            <div class="col-md-4">--%>
-<%--                <input id="product_id" name="customer_id" placeholder="Customer ID" class="form-control input-md" required="" type="text">--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
 
-<%--            </div>--%>
-<%--        </div>--%>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="product_name">Customer NAME</label>
-            <div class="col-md-4">
-                <input id="product_name" name="customer_name" placeholder="Customer NAME" class="form-control input-md" required="" type="text">
-
-            </div>
-
+    <!-- Text input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="product_name">Customer NAME</label>
+        <div class="col-md-4">
+            <input id="product_name" name="customer_name" placeholder="Customer NAME" class="form-control input-md"
+                   required="" type="text">
 
         </div>
+
+
+    </div>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer BIRTHDAY</label>
         <div class="col-md-4">
-            <input id="product_birthday" name="customer_birthday" placeholder="Customer NAME" class="form-control input-md" required="" type="date">
+            <input id="product_birthday" name="customer_birthday" placeholder="Customer NAME"
+                   class="form-control input-md" required="" type="date">
 
-          </div>
+        </div>
 
     </div>
 
@@ -67,7 +68,8 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer ID Card</label>
         <div class="col-md-4">
-            <input id="customerIdCard" name="customerIdCard" placeholder="Customer ID Card" class="form-control input-md" required="" type="text">
+            <input id="customerIdCard" name="customerIdCard" placeholder="Customer ID Card"
+                   class="form-control input-md" required="" type="text">
 
         </div>
 
@@ -77,7 +79,8 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer Phone</label>
         <div class="col-md-4">
-            <input id="customerPhone" name="customerPhone" placeholder="Customer Phone" class="form-control input-md" required="" type="text">
+            <input id="customerPhone" name="customerPhone" placeholder="Customer Phone" class="form-control input-md"
+                   required="" type="text">
 
         </div>
 
@@ -88,7 +91,8 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer Email</label>
         <div class="col-md-4">
-            <input id="customerEmail" name="customerEmail" placeholder="Customer Email" class="form-control input-md" required="" type="text">
+            <input id="customerEmail" name="customerEmail" placeholder="Customer Email" class="form-control input-md"
+                   required="" type="text">
 
         </div>
 
@@ -99,7 +103,8 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer Adress</label>
         <div class="col-md-4">
-            <input id="customerAddress" name="customerAddress" placeholder="Customer Adress" class="form-control input-md" required="" type="text">
+            <input id="customerAddress" name="customerAddress" placeholder="Customer Adress"
+                   class="form-control input-md" required="" type="text">
 
         </div>
 
@@ -110,10 +115,10 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="CustomerType">Customer Type</label>
         <div class="col-md-4">
-            <select  name="CustomerType" id="CustomerType" class="form-control">
-                    <c:forEach var="o" items="${customerType}">
-                        <option value="${o.customerTypeId}">${o.customerTypeName}</option>
-                    </c:forEach>
+            <select name="CustomerType" id="CustomerType" class="form-control">
+                <c:forEach var="o" items="${customerType}">
+                    <option value="${o.customerTypeId}">${o.customerTypeName}</option>
+                </c:forEach>
             </select>
 
         </div>
