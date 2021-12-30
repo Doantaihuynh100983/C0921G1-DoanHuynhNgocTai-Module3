@@ -29,6 +29,7 @@ public class CustomerRepository implements ICustomerRepository {
             rs = ps.executeQuery();
             while (rs.next()) {
                 customerList.add(new Customer(
+                        rs.getInt("customer_id"),
                         rs.getString("customer_name"),
                         rs.getDate("customer_birthday"),
                         rs.getBoolean("customer_gender"),
@@ -73,7 +74,7 @@ public class CustomerRepository implements ICustomerRepository {
                 ps.setInt(5,customer.getCustomerPhone());
                 ps.setString(6,customer.getCustomerEmail());
                 ps.setString(7,customer.getCustomerAddress());
-                ps.setInt(8,new CustomerType().getCustomerTypeId());
+                ps.setInt(8,customer.getCustomerType().getCustomerTypeId());
                 ps.executeUpdate();
 
             }catch (Exception e){

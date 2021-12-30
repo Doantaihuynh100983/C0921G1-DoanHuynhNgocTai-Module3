@@ -58,7 +58,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        int customerId = Integer.parseInt(request.getParameter("customer_id"));
+//        int customerId = Integer.parseInt(request.getParameter("customer_id"));
         String customerName = request.getParameter("customer_name");
         Date customerBirthday = Date.valueOf(request.getParameter("customer_birthday"));
         Boolean customerGender = Boolean.valueOf(request.getParameter("product_Gender"));
@@ -69,13 +69,13 @@ public class CustomerServlet extends HttpServlet {
 
         String customerType = request.getParameter("CustomerType");
 
-//            CustomerType customerType1 = iCustomerService.customerType(Integer.parseInt(customerType));
-//        Customer customer = new Customer(customerId,customerName,customerBirthday,
-//                customerGender,customerIdCard,customerPhone,customerEmail,customerAddress,customerType1);
+            CustomerType customerType1 = iCustomerService.customerType(Integer.parseInt(customerType));
+        Customer customer = new Customer(customerName,customerBirthday,
+                customerGender,customerIdCard,customerPhone,customerEmail,customerAddress,customerType1);
 
 
 
-//        iCustomerService.inserCustomer(customer);
+        iCustomerService.inserCustomer(customer);
         response.sendRedirect("customer");
     }
 

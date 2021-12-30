@@ -16,12 +16,12 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer( String customerName, Date customerBirthday,
+    public Customer( int customerId, String customerName, Date customerBirthday,
                     boolean customerGender,
                     int customerIdCard, int customerPhone,
                     String customerEmail, String customerAddress ,
                     CustomerType customerType) {
-        this.customerType = customerType;
+        this.customerId = customerId;
         this.customerName = customerName;
         this.customerBirthday = customerBirthday;
         this.customerGender = customerGender;
@@ -29,8 +29,21 @@ public class Customer {
         this.customerPhone = customerPhone;
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
+        this.customerType = customerType;
     }
 
+    public Customer( String customerName, Date customerBirthday, boolean customerGender,
+                    int customerIdCard, int customerPhone, String customerEmail, String customerAddress ,CustomerType customerType) {
+
+        this.customerName = customerName;
+        this.customerBirthday = customerBirthday;
+        this.customerGender = customerGender;
+        this.customerIdCard = customerIdCard;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerEmail;
+        this.customerAddress = customerAddress;
+        this.customerType = customerType;
+    }
 
     public int getCustomerId() {
         return customerId;
