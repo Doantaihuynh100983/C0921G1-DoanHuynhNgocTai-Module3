@@ -12,4 +12,7 @@ public interface IServiceRepository {
     List<RentType> getAllRenType();
     List<ServiceType> getAllServiceType();
     void addService(Service service);
+    Service getServiceById(int id);
+    void updateService(Service service);
+    void deleteService(int id);
 }

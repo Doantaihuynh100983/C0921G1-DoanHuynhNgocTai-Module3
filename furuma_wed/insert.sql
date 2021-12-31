@@ -70,7 +70,7 @@ insert into customer (customer_type_id ,customer_name,customer_birthday,customer
 (5,"Nguyen Van PN","1989-01-01",0,"444444444","0904567890","abc@gmail.com","Quang Tri"),
 (2,"Nguyen Van OY","2003-05-01",1,"555555555","0905678901","abc@gmail.com","Da Nang"),
 (4,"Nguyen Van BB","1980-01-01",0,"666666666","0906789012","abc@gmail.com","Hue");
-select * from  customer;
+-- select * from  customer;
 
 insert into rent_type (rent_type_name,rent_type_cost)
 values
@@ -85,7 +85,7 @@ values
 ("Villa"),
 ("House"),
 ("Room");
-select * from service_type;
+-- select * from service_type;
 
 
 insert into service (service_name, service_are, service_cost, service_max_people , rent_type_id , service_type_id ,  standard_room , description_other_convenience , pool_area , number_of_floors)
@@ -102,14 +102,15 @@ values
 ("Room 5",60 , 80 , 3 , 1 , 3 , "vip" , "Available" , 30.5, 3);
 -- select * from service sv join service_type svt on sv.service_type_id = svt.service_type_id
 -- join rent_type rt on sv.rent_type_id = rt.rent_type_id;
-insert into service (service_name, service_are, service_cost, service_max_people ,   standard_room , description_other_convenience , pool_area , number_of_floors ,rent_type_id , service_type_id ) values (?,?,?,?,?,?,?,?,?,?);
-select * from service sv join service_type svt on sv.service_type_id = svt.service_type_id join rent_type rt on sv.rent_type_id = rt.rent_type_id order by service_id;
+-- insert into service (service_name, service_are, service_cost, service_max_people ,   standard_room , description_other_convenience , pool_area , number_of_floors ,rent_type_id , service_type_id ) values (?,?,?,?,?,?,?,?,?,?);
+-- select * from service sv join service_type svt on sv.service_type_id = svt.service_type_id join rent_type rt on sv.rent_type_id = rt.rent_type_id order by service_id;
 
 select * from service;
 
+-- select * from service where service_id = ?;
 
-
-
+-- UPDATE service SET service_name = ?, service_are = ? , service_cost = ?, service_max_people = ? ,   standard_room = ? , description_other_convenience = ?, pool_area = ? , number_of_floors = ? ,rent_type_id = ? , service_type_id = ? WHERE service_id=? ;
+update service set flag_delete_servie = 0 where  service_id= ?;
 insert into contract(employee_id,customer_id,service_id,contract_start_date,contract_end_date,contract_deposit,contract_total_money)
 values
 (1,2,2,"2015-12-12","2019-03-12",100,400),

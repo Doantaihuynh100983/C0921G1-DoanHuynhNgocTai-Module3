@@ -96,7 +96,10 @@
                     <c:forEach var="rentype" items="${renTypeList}" >
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="rentType" id="rentType" value="${rentype.rentTypeId}" name="service_rentype">
-                        <label class="form-check-label" for="rentType"><c:out value="${rentype.rentTypeName}"/></label>
+                        <label class="form-check-label" for="rentType">
+                            <c:out value="${rentype.rentTypeName}"/>
+
+                        </label>
                     </div>
                     </c:forEach>
                 </div>

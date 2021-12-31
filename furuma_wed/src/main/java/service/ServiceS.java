@@ -30,11 +30,20 @@ public class ServiceS  implements IServiceS{
             this.iServiceRepository.addService(service);
     }
 
-//    public static void main(String[] args) {
-//        IServiceS d = new ServiceS();
-//        List<ServiceType> rentTypeList = d.getAllServiceType();
-//        for (ServiceType r : rentTypeList){
-//            System.out.println(r);
-//        }
-//    }
+    @Override
+    public Service getServiceById(int id) {
+        return  this.iServiceRepository.getServiceById(id);
+    }
+
+    @Override
+    public void updateService(Service service) {
+        this.iServiceRepository.updateService(service);
+    }
+
+    @Override
+    public void deleteService(int id) {
+        this.iServiceRepository.deleteService(id);
+    }
+
+
 }

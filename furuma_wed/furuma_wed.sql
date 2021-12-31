@@ -1,4 +1,4 @@
-drop database furumawed;
+create database furumawed;
 use furumawed;
 
 create table position (
@@ -101,6 +101,8 @@ create table service(
         foreign key (service_type_id) references service_type(service_type_id),
 		foreign key (rent_type_id) references rent_type (rent_type_id)
 );
+
+ALTER TABLE service ADD flag_delete_servie int default 1;
 
 create table contract(
 	contract_id int primary key auto_increment, 
