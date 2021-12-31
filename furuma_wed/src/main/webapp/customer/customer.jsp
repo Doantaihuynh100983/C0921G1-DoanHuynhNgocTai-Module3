@@ -69,7 +69,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Service</a>
+                        <a class="nav-link active" aria-current="page" href="/service">Service</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Concact</a>

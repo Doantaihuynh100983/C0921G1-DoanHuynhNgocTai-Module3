@@ -22,16 +22,6 @@
     <!-- Form Name -->
     <legend>CUSTOMER</legend>
 
-
-    <%--        <!-- Text input-->--%>
-    <%--        <div class="form-group">--%>
-    <%--            <label class="col-md-4 control-label" for="product_id">Customer ID</label>--%>
-    <%--            <div class="col-md-4">--%>
-    <%--                <input id="product_id" name="customer_id" placeholder="Customer ID" class="form-control input-md" required="" type="text">--%>
-
-    <%--            </div>--%>
-    <%--        </div>--%>
-
     <!-- Text input-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="product_name">Customer NAME</label>

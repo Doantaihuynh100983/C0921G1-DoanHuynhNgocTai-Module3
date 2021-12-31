@@ -52,7 +52,11 @@ public class CustomerServlet extends HttpServlet {
             case "searchCustomer":
                 searchCustomer(request,response);
                 break;
+            case "viewsService":
+                viewsService(request,response);
+                break;
             default:
+
                 disPlayAllCustomer(request, response);
                 break;
         }
@@ -137,6 +141,10 @@ public class CustomerServlet extends HttpServlet {
            request.getRequestDispatcher("customer/customer.jsp").forward(request, response);
 
     }
+    private void viewsService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("service/service.jsp").forward(request,response);
+    }
+
 }
 
 

@@ -1,4 +1,4 @@
-create database furumawed;
+drop database furumawed;
 use furumawed;
 
 create table position (
