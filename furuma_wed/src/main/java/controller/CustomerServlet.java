@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = {"", "/customer"})
 public class CustomerServlet extends HttpServlet {
@@ -93,8 +94,15 @@ public class CustomerServlet extends HttpServlet {
                 customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, customerType1);
 
 
-        iCustomerService.inserCustomer(customer);
-        response.sendRedirect("customer");
+     Map<String ,String> stringStringMap = iCustomerService.inserCustomer(customer);
+
+     if (!stringStringMap.isEmpty()){
+         request.setAttribute("nameCustomer",stringStringMap.get("nameCustomer"));
+         request.getRequestDispatcher("customer/addCustomer.jsp").forward(request,response);
+     }else {
+            response.sendRedirect("customer");
+     }
+
     }
 
 

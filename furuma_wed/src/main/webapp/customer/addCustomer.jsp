@@ -28,7 +28,7 @@
         <div class="col-md-4">
             <input id="product_name" name="customer_name" placeholder="Customer NAME" class="form-control input-md"
                    required="" type="text">
-
+            <p style="color: red"><c:out value="${nameCustomer}"/></p>
         </div>
 
 

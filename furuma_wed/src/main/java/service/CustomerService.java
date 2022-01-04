@@ -6,7 +6,9 @@ import common.Vallidate;
 import repository.CustomerRepository;
 import repository.ICustomerRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerService implements ICustomerService {
     ICustomerRepository iCustomerRepository = new CustomerRepository();
@@ -21,8 +23,20 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void inserCustomer(Customer customer) {
-        this.iCustomerRepository.inserCustomer(customer);
+    public Map<String ,String> inserCustomer(Customer customer) {
+        Map<String,String> stringStringMap = new HashMap<>();
+        if (!customer.getCustomerName().matches("[A-Za-z ]+")){
+            stringStringMap.put("nameCustomer","Invalid name format");
+        }
+
+
+        if (stringStringMap.isEmpty()){
+            this.iCustomerRepository.inserCustomer(customer);
+        }
+
+
+
+        return stringStringMap;
     }
 
     @Override
