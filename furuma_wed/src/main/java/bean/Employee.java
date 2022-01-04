@@ -14,14 +14,28 @@ public class Employee {
     private Position position;
     private EducationDegree educationDegree;
     private Division division;
-    private User user;
+
 
     public Employee() {
     }
 
+    public Employee(String employeeName, Date employeeBirthday, String employeeIdCard, double employeeSalary, String employeePhone, String employeeEmail,
+                    String employeeAddress, Position position, EducationDegree educationDegree, Division division) {
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+    }
+
     public Employee(int employeeId, String employeeName, Date employeeBirthday, String employeeIdCard,
                     double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress,
-                    Position position, EducationDegree educationDegree, Division division, User user) {
+                    Position position, EducationDegree educationDegree, Division division) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
@@ -33,7 +47,6 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.user = user;
     }
 
     public int getEmployeeId() {
@@ -124,11 +137,4 @@ public class Employee {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

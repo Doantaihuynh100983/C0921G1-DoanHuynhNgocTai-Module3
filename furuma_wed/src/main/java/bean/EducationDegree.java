@@ -12,6 +12,10 @@ public class EducationDegree {
         this.educationDegreeName = educationDegreeName;
     }
 
+    public EducationDegree(int educationDegreeId) {
+        this.educationDegreeId = educationDegreeId;
+    }
+
     public int getEducationDegreeId() {
         return educationDegreeId;
     }

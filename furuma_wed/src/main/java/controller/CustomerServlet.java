@@ -150,7 +150,7 @@ public class CustomerServlet extends HttpServlet {
 
     }
     private void viewsService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("service/service.jsp").forward(request,response);
+        request.getRequestDispatcher("service/5.jsp").forward(request,response);
     }
 
 }

@@ -2,54 +2,47 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style type="text/css">
-        .tableCustomers table, th, td {
-            border: 1px solid black;
-
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        .footer {
+        #customers td, #customers th {
+            border: 1px solid black;
+            padding: 8px;
 
-            left: 0;
-            width: 100%;
-            background-color: red;
-            color: white;
-            text-align: center;
+        }
+        body{
+            background-image:url(https://i.pinimg.com/originals/29/70/67/2970675eca7523ed6e1c0408134ef246.jpg);
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: black;
+            color: yellow;
+        }
+
+        .pagination {
+            float: right;
         }
 
     </style>
-    <link rel="stylesheet" href="../bootstrap413/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.min.css"/>
 </head>
 <body>
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <img class="navbar-brand"
-                 src="https://haymora.com/upload/images/cong_nghe_thong_tin/2020/codegym/codegym-logo.jpg"
-                 style="width: 70px;height: 70px"/>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                </ul>
-                <span class="navbar-text text-end">
-                        DOAN HUYNH NGOC TAI
-                  </span>
-            </div>
-        </div>
-    </nav>
-</div>
-
 
 <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg  bg-dark">
         <div class="container-fluid">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -57,42 +50,53 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="#">Employee</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="/employee">Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Customer</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="/customer">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/service">Service</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="/service">Service</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Concact</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="#">Concact</a>
                     </li>
                 </ul>
-                <form class="d-flex" method="get" action="/customer">
-                    <input  type="hidden" value="searchCustomer" name="actionCustomer"/>
-                    <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+
             </div>
         </div>
     </nav>
 </div>
+<h1 style="color:  yellow">CUSTOMER LIST</h1>
+<form class="row g-3" method="get" action="/customer">
+    <div class="col-md-4">
+        <label for="employeeName" class="form-label" style="color:  yellow"> CUSTOMER NAME</label>
+        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search" id="employeeName">
+
+    </div>
+    <div class="col-md-4">
+        <label for="employeePOSTISION" class="form-label" style="color:  yellow"> CUSTOMER EMAIL</label>
+        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search"  id="employeePOSTISION">
+    </div>
+    <div class="col-md-4">
+        <label for="employeeAdress" class="form-label" style="color:  yellow"> CUSTOMER TYPE</label>
+        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search" id="employeeAdress">
+    </div>
+    <button class="btn btn-warning" type="submit">Search</button>
+</form>
 
 
-<button type="button" class="btn btn-info"><a href="/customer?actionCustomer=viewsAddCustomer"
-                                              style="text-decoration: none ; color: white">ADD NEW CUSTOMER</a></button>
 
-<div class="tableCustomers">
-    <table style="background-color:yellow ; width: 100%" class="table table-striped table-bordered" id="tableCustomer">
+<div>
+    <table style="background-color:yellow ; width: 100%" class="table table-dark table-striped table-bordered" id="customers">
         <thead>
-        <tr style="background-color:skyblue ;text-align: center">
+        <tr style="background-color:skyblue ;text-align: center ;color: yellow">
             <td>ID</td>
             <td>Name</td>
             <td>Birthday</td>
@@ -102,8 +106,7 @@
             <td>Email</td>
             <td>Address</td>
             <td>Customer Type</td>
-            <td style="background-color:red">STATUS</td>
-            <%--                        customer.customerType.name--%>
+            <td>STATUS</td>
         </tr>
         </thead>
         <tbody>
@@ -130,9 +133,9 @@
                 <td>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal${i.customerId}">
+                    <a type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal${i.customerId}">
                         DELETE
-                    </button>
+                    </a>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal${i.customerId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -143,51 +146,47 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                     <c:out value="${i.customerName}"/>
+                                   <h1 style="color: black"> <c:out value="${i.customerName}"/></h1>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger"> <a href="/customer?actionCustomer=deleteCustomer&did=${i.customerId}">DELETE</a></button>
+                                     <a href="/customer?actionCustomer=deleteCustomer&did=${i.customerId}" type="button" class="btn btn-warning">DELETE</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-info">
-                        <a
-                            href="/customer?actionCustomer=customerByid&uid=${i.customerId}"
-                            style="text-decoration: none ; color: white">UPDATE
+                        <a href="/customer?actionCustomer=customerByid&uid=${i.customerId}"
+                           type="button" class="btn btn-warning" >UPDATE
                         </a>
-                    </button>
+
                 </td>
             </tr>
 
         </c:forEach>
         </tbody>
-
     </table>
 </div>
 
+<a  type="button" class="btn btn-warning"  href="/customer?actionCustomer=viewsAddCustomer">ADD NEW CUSTOMER </a>
 
-<div class="footer">
-    <p>Footer</p>
-</div>
+
+
+
 
 
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-
 <script src="../jquery/jquery-3.5.1.min.js"></script>
 <script src="../datatables/js/jquery.dataTables.min.js"></script>
 <script src="../datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#tableCustomer').dataTable({
+        $('#customers').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 6

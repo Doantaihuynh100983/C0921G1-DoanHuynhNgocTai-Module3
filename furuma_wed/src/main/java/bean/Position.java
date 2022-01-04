@@ -12,6 +12,10 @@ public class Position {
         this.positionName = positionName;
     }
 
+    public Position(int positionId) {
+        this.positionId = positionId;
+    }
+
     public int getPositionId() {
         return positionId;
     }

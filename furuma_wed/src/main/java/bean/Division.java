@@ -9,6 +9,10 @@ public class Division {
         this.divisionName = divisionName;
     }
 
+    public Division(int divisionId) {
+        this.divisionId = divisionId;
+    }
+
     public Division() {
     }
 

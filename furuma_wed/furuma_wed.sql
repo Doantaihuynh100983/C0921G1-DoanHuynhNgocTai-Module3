@@ -46,13 +46,21 @@ create table employee(
     position_id  int  not null , 
     education_degree_id  int  not null ,
     division_id int  not null , 
-    usename varchar(255),
-    foreign key (position_id) references  position (position_id),
+  foreign key (position_id) references  position (position_id),
     foreign key (education_degree_id) references education_degree(education_degree_id),
-    foreign key (division_id) references division(division_id),
-    foreign key (usename) references user(usename)
+    foreign key (division_id) references division(division_id)
+
 );
 
+insert into employee (employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id)
+
+values (?,?,?,?,?,?,?,?,?,?);
+
+
+select * from employee epl join position ps on epl.position_id = ps.position_id
+	join education_degree edg on epl.education_degree_id = edg.education_degree_id
+    join division dv on epl.division_id = dv.division_id 
+    order by employee_id;
 
 create table customer_type(
 	customer_type_id int primary key auto_increment,

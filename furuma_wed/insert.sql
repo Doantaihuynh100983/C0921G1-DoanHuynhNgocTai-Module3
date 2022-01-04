@@ -23,7 +23,7 @@ values
 ("Hanh chinh"),
 ("Phuc vu"),
 ("Quan ly");
-
+select * from division ;
 
 insert into employee (employee_name,position_id,education_degree_id,division_id,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address)
 values
@@ -110,7 +110,7 @@ select * from service;
 -- select * from service where service_id = ?;
 
 -- UPDATE service SET service_name = ?, service_are = ? , service_cost = ?, service_max_people = ? ,   standard_room = ? , description_other_convenience = ?, pool_area = ? , number_of_floors = ? ,rent_type_id = ? , service_type_id = ? WHERE service_id=? ;
-update service set flag_delete_servie = 0 where  service_id= ?;
+-- update service set flag_delete_servie = 0 where  service_id= ?;
 insert into contract(employee_id,customer_id,service_id,contract_start_date,contract_end_date,contract_deposit,contract_total_money)
 values
 (1,2,2,"2015-12-12","2019-03-12",100,400),
