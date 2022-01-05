@@ -13,4 +13,7 @@ public interface IEmployeeService {
     List<EducationDegree> getAllEduction();
     List<Division> getAllDivision();
     void insertEmployee(Employee employee);
+    void deleteEmployee(int id);
+    Employee getEmployeeById(int id);
+    void updateEmploeyee(Employee employee);
 }

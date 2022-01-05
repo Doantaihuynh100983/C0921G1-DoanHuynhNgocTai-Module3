@@ -36,4 +36,19 @@ public class EmployeeService  implements  IEmployeeService{
         this.employeeRepository.insertEmployee(employee);
     }
 
+    @Override
+    public void deleteEmployee(int id) {
+        this.employeeRepository.deleteEmployee(id);
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        return   this.employeeRepository.getEmployeeById(id);
+    }
+
+    @Override
+    public void updateEmploeyee(Employee employee) {
+        this.employeeRepository.updateEmploeyee(employee);
+    }
+
 }

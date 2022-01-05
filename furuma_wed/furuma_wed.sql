@@ -60,7 +60,18 @@ values (?,?,?,?,?,?,?,?,?,?);
 select * from employee epl join position ps on epl.position_id = ps.position_id
 	join education_degree edg on epl.education_degree_id = edg.education_degree_id
     join division dv on epl.division_id = dv.division_id 
-    order by employee_id;
+    where flag_delete = 1
+    order by employee_id ;
+    
+    
+ALTER TABLE employee ADD flag_delete int  default 1;
+UPDATE employee SET flag_delete=0 WHERE employee_id=?; 
+select * from employee where employee_id = 1;
+
+UPDATE employee SET employee_name = ?,employee_birthday = ? ,employee_id_card = ?,employee_salary =?,employee_phone = ?,employee_email = ?,employee_address = ?,position_id = ?,education_degree_id = ?,division_id = ? WHERE employee_id=?; 
+
+
+
 
 create table customer_type(
 	customer_type_id int primary key auto_increment,
@@ -81,7 +92,7 @@ create table customer(
     foreign key (customer_type_id) references customer_type (customer_type_id)
 );
 ALTER TABLE customer ADD flag_delete int  default 1;
-
+select * from customer where customer_name like ? and customer_address like ? and customer_type_id like ?
 
 create table rent_type(
 	rent_type_id int primary key auto_increment,

@@ -74,19 +74,26 @@
     </nav>
 </div>
 <h1 style="color:  yellow">CUSTOMER LIST</h1>
-<form class="row g-3" method="get" action="/customer">
+<form class="row g-3" action="/customer">
+    <input type="hidden" name="actionCustomer" value="searchCustomer"/>
     <div class="col-md-4">
         <label for="employeeName" class="form-label" style="color:  yellow"> CUSTOMER NAME</label>
-        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search" id="employeeName">
+        <input class="form-control me-2" name="search_name" type="search" placeholder="name" aria-label="Search" id="employeeName">
 
     </div>
     <div class="col-md-4">
-        <label for="employeePOSTISION" class="form-label" style="color:  yellow"> CUSTOMER EMAIL</label>
-        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search"  id="employeePOSTISION">
+        <label for="employeePOSTISION" class="form-label" style="color:  yellow"> CUSTOMER ADRESS</label>
+        <input class="form-control me-2" name="search_adress" type="search" placeholder="adress" aria-label="Search"  id="employeePOSTISION">
     </div>
     <div class="col-md-4">
-        <label for="employeeAdress" class="form-label" style="color:  yellow"> CUSTOMER TYPE</label>
-        <input class="form-control me-2" name="search1" type="search" placeholder="Search" aria-label="Search" id="employeeAdress">
+        <label class="col-md-4 control-label" for="CustomerType" style="color:  yellow">Customer Type</label>
+        <select name="CustomerType" id="CustomerType" class="form-control">
+            <option selected>Chosse</option>
+            <c:forEach var="o" items="${searchCustomer}">
+
+                <option value="${o.customerTypeId}">${o.customerTypeName}</option>
+            </c:forEach>
+        </select>
     </div>
     <button class="btn btn-warning" type="submit">Search</button>
 </form>

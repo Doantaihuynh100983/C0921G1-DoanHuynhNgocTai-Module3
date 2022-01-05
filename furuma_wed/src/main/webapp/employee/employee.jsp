@@ -133,8 +133,32 @@
             <td><c:out value="${eml.educationDegree.educationDegreeName}"/></td>
             <td><c:out value="${eml.division.divisionName}"/></td>
                 <td>
-                    <a type="button" class="btn btn-warning">DELETE</a>
-                    <a type="button" class="btn btn-warning">UPDATE</a>
+                    <!-- Button trigger modal -->
+                    <a type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal${eml.employeeId}">
+                        DELETE
+                    </a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal${eml.employeeId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel" style="color: red">BẠN CÓ MUỐN XÓA !!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1 style="color: black"><c:out value="${eml.employeeName}"/></h1>
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                                    <a type="button" class="btn btn-danger" href="/employee?actionEmployee=deleteEmploye&dide=${eml.employeeId}">DELETE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a type="button" class="btn btn-warning" href="/employee?actionEmployee=getEmployeeById&uide=${eml.employeeId}">UPDATE</a>
                 </td>
         </tr>
         </c:forEach>

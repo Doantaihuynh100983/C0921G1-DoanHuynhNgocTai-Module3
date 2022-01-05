@@ -15,12 +15,15 @@ import java.util.List;
 public class EmployeeRepository  implements  IEmployeeRepository{
     private static final String GET_ALL_EMPLOYEE = "select * from employee epl join position ps on epl.position_id = ps.position_id\n" +
             "\tjoin education_degree edg on epl.education_degree_id = edg.education_degree_id\n" +
-            "    join division dv on epl.division_id = dv.division_id   order by employee_id";
+            "    join division dv on epl.division_id = dv.division_id where flag_delete=1  order by employee_id ";
     private static final String GET_ALL_POSITION = "select * from position";
     private static final String GET_ALL_EDUCATION = "select * from education_degree";
     private static final String GET_ALL_DIVISION = "select * from division ";
     private static final String ADD_EMPLOYEE = "insert into employee (employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id)\n" +
             "\n" + "values (?,?,?,?,?,?,?,?,?,?)";
+    private  static  final String DELETE_EMPLOYEE = "UPDATE employee SET flag_delete=0 WHERE employee_id=?";
+    private static  final String SELECT_EMPLOYEE_BY_ID = "select * from employee where employee_id = ?";
+    private static final String UPDATE_EMPLOYEE = "UPDATE employee SET employee_name = ?,employee_birthday = ? ,employee_id_card = ?,employee_salary =?,employee_phone = ?,employee_email = ?,employee_address = ?,position_id = ?,education_degree_id = ?,division_id = ? WHERE employee_id=?";
     Connection conn = new DBConnect().DBConnect();
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -128,6 +131,63 @@ public class EmployeeRepository  implements  IEmployeeRepository{
         }
     }
 
+    @Override
+    public void deleteEmployee(int  id) {
+        try {
+            ps = conn.prepareStatement(DELETE_EMPLOYEE);
+            ps.setInt(1,id);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        try {
+            ps = conn.prepareStatement(SELECT_EMPLOYEE_BY_ID);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                return new Employee(
+                        rs.getInt("employee_id"),
+                        rs.getString("employee_name"),
+                        rs.getDate("employee_birthday"),
+                        rs.getString("employee_id_card"),
+                        rs.getDouble("employee_salary"),
+                        rs.getString("employee_phone"),
+                        rs.getString("employee_email"),
+                        rs.getString("employee_address"),
+                        new Position(rs.getInt("position_id")),
+                                new EducationDegree(rs.getInt("education_degree_id")),
+                                new Division(rs.getInt("division_id")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void updateEmploeyee(Employee employee) {
+            try {
+                ps = conn.prepareStatement(UPDATE_EMPLOYEE);
+                ps.setString(1,employee.getEmployeeName());
+                ps.setDate(2, (java.sql.Date) employee.getEmployeeBirthday());
+                ps.setString(3,employee.getEmployeeIdCard());
+                ps.setDouble(4,employee.getEmployeeSalary());
+                ps.setString(5,employee.getEmployeePhone());
+                ps.setString(6,employee.getEmployeeEmail());
+                ps.setString(7,employee.getEmployeeAddress());
+                ps.setInt(8,employee.getPosition().getPositionId());
+                ps.setInt(9,employee.getEducationDegree().getEducationDegreeId());
+                ps.setInt(10,employee.getDivision().getDivisionId());
+                ps.setInt(11,employee.getEmployeeId());
+                ps.executeUpdate();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+    }
 
 }
 

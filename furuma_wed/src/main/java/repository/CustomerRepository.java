@@ -20,7 +20,7 @@ public class CustomerRepository implements ICustomerRepository {
     private static final String UPDATE_CUSTOMER_BY_ID = "UPDATE customer SET   customer_name = ? ,customer_birthday = ? ,customer_gender = ? ,customer_id_card = ?,customer_phone = ?," +
             "customer_email = ? ,customer_address = ? ,customer_type_id = ? WHERE customer_id = ?";
     private static final  String DELETE_CUSTOMER ="UPDATE customer SET flag_delete = 0  WHERE customer_id= ?";
-    private static final String SEARCH_CUSTOMER ="select * from customer ctm left join customer_type ctmt on ctm.customer_type_id = ctmt.customer_type_id where customer_name like ?";
+    private static final String SEARCH_CUSTOMER = "select * from customer where customer_name like ? and customer_address like ? and customer_type_id like ?";
     Connection conn = new DBConnect().DBConnect();
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -159,30 +159,32 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public List<Customer>  searchCustomer(String name) {
+    public List<Customer> searchCustomer(String name, String adress, int customerType) {
         List<Customer> customerList = new ArrayList<>();
-            try {
-                ps = conn.prepareStatement(SEARCH_CUSTOMER);
-                ps.setString(1,"%"+name+"%");
-                rs = ps.executeQuery();
-                while (rs.next()){
-                    customerList.add(new Customer(
-                            rs.getInt("customer_id"),
-                            rs.getString("customer_name"),
-                            rs.getDate("customer_birthday"),
-                            rs.getBoolean("customer_gender"),
-                            rs.getInt("customer_id_card"),
-                            rs.getInt("customer_phone"),
-                            rs.getString("customer_email"),
-                            rs.getString("customer_address"),
-                            new CustomerType(rs.getInt("customer_type_id"),
-                                    rs.getString("customer_type_name"))));
-                }
-
-            }catch (Exception e){
-                e.printStackTrace();
+        try {
+            ps = conn.prepareStatement(SEARCH_CUSTOMER);
+            ps.setString(1,"%"+name+"%");
+            ps.setString(2,"%"+adress+"%");
+            ps.setInt(3,customerType);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                customerList.add(new Customer(
+                        rs.getInt("customer_id"),
+                        rs.getString("customer_name"),
+                        rs.getDate("customer_birthday"),
+                        rs.getBoolean("customer_gender"),
+                        rs.getInt("customer_id_card"),
+                        rs.getInt("customer_phone"),
+                        rs.getString("customer_email"),
+                        rs.getString("customer_address"),
+                        new CustomerType(rs.getInt("customer_type_id")))
+                );
             }
-            return customerList;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return customerList;
     }
+
 
 }

@@ -53,11 +53,7 @@ public class CustomerServlet extends HttpServlet {
             case "searchCustomer":
                 searchCustomer(request,response);
                 break;
-            case "viewsService":
-                viewsService(request,response);
-                break;
             default:
-
                 disPlayAllCustomer(request, response);
                 break;
         }
@@ -66,6 +62,8 @@ public class CustomerServlet extends HttpServlet {
     private void disPlayAllCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Customer> customerList = iCustomerService.getAllCustomer();
         request.setAttribute("customerList", customerList);
+        List<CustomerType> customerTypes = iCustomerService.getAllCustomerType();
+        request.setAttribute("searchCustomer",customerTypes);
         request.getRequestDispatcher("customer/customer.jsp").forward(request, response);
     }
 
@@ -143,15 +141,16 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String name = request.getParameter("search1");
-            List<Customer> customerList = iCustomerService.searchCustomer(name);
-            request.setAttribute("customerList", customerList);
-           request.getRequestDispatcher("customer/customer.jsp").forward(request, response);
+        String name = request.getParameter("search_name");
+        String adress = request.getParameter("search_adress");
+        int customerType = Integer.parseInt(request.getParameter("CustomerType"));
+        List<Customer> customerList = iCustomerService.searchCustomer(name,adress,customerType);
+        request.setAttribute("customerList", customerList);
+        request.getRequestDispatcher("customer/customer.jsp").forward(request, response);
+
 
     }
-    private void viewsService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("service/5.jsp").forward(request,response);
-    }
+
 
 }
 

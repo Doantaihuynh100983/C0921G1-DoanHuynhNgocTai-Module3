@@ -9,6 +9,10 @@ public class CustomerType {
         this.customerTypeName = customerTypeName;
     }
 
+    public CustomerType(int customerTypeId) {
+        this.customerTypeId = customerTypeId;
+    }
+
     public CustomerType() {
     }
 

@@ -28,6 +28,9 @@ public class EmployeeServlet extends HttpServlet {
             case "addEmployee":
                 addEmployee(request, response);
                 break;
+            case "updateEmployee":
+                updateEmployee(request,response);
+                break;
         }
     }
 
@@ -40,7 +43,14 @@ public class EmployeeServlet extends HttpServlet {
                 case "viewsAddEmployee":
                     viewsAddEmployee(request,response);
                     break;
+                case "deleteEmploye":
+                    deleteEmploye(request,response);
+                    break;
+                case "getEmployeeById":
+                    getEmployeeById(request,response);
+                    break;
                 default:
+
                     getAllEmployee(request,response);
                     break;
             }
@@ -81,6 +91,40 @@ public class EmployeeServlet extends HttpServlet {
         employeeService.insertEmployee(employee);
         response.sendRedirect("employee");
 
+    }
+    private void deleteEmploye(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+            int id = Integer.parseInt(request.getParameter("dide"));
+            employeeService.deleteEmployee(id);
+            response.sendRedirect("employee");
+    }
+    private void getEmployeeById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("uide"));
+        Employee employee = employeeService.getEmployeeById(id);
+        request.setAttribute("employeeById",employee);
+        List<Position> positionList = employeeService.getAllPosition();
+        request.setAttribute("position",positionList);
+        List<EducationDegree> educationDegreeList = employeeService.getAllEduction();
+        request.setAttribute("education", educationDegreeList);
+        List<Division> divisionList = employeeService.getAllDivision();
+        request.setAttribute("division" , divisionList);
+        request.getRequestDispatcher("employee/updateEmployee.jsp").forward(request,response);
+    }
+
+    private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String name = request.getParameter("employeeName");
+        Date birthday = Date.valueOf(request.getParameter("employeeBirthday"));
+        String idCard = request.getParameter("employeeIdCard");
+        double salary = Double.parseDouble(request.getParameter("employeeSalary"));
+        String phone = request.getParameter("employeePhone");
+        String email = request.getParameter("employeeEmail");
+        String adress = request.getParameter("employeeAddress");
+        Position position1 = new Position(Integer.parseInt(request.getParameter("position_epl")));
+        EducationDegree educationDegree1 = new EducationDegree(Integer.parseInt(request.getParameter("education_epl")));
+        Division division1 = new Division(Integer.parseInt(request.getParameter("division_epl")));
+        int id = Integer.parseInt(request.getParameter("employeeId"));
+        Employee employee = new Employee(id,name,birthday,idCard,salary,phone,email,adress,position1,educationDegree1,division1);
+        employeeService.updateEmploeyee(employee);
+        response.sendRedirect("employee");
     }
 }
 
